@@ -28,6 +28,6 @@ class OrderResource extends JsonResource
             'trips' => TripResource::collection($this->whenLoaded('trips')),
             'contact' => new ContactResource($this->whenLoaded('contact'))
 
-        ];//parent::toArray($request);
+        ];
     }
 }

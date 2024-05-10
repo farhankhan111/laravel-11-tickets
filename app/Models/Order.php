@@ -12,6 +12,18 @@ class Order extends Model
 {
     use HasFactory;
 
+
+    public function getClassAttribute($value): string
+    {
+        return ucfirst($value);
+    }
+
+    public function getTypeAttribute($value): string
+    {
+        return ucwords($value);
+    }
+
+
     public function trips(): HasMany
     {
         return $this->hasMany(Trip::class);
