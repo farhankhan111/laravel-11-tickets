@@ -7,18 +7,13 @@ use App\Http\Resources\front\OrderResource;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
-class OffersController extends Controller
+class TicketsController extends Controller
 {
     public function index(Request $request)
     {
-        $order = Order::with(['trips'])->where('id',1)->first();
+        $tickets = Order::WithOriginDestination()->with(['tickets'])->where('id',1)->firstOrFail();
 
-        return new OrderResource($order);
-
+        return new OrderResource($tickets);
     }
-
-
-
-
 
 }

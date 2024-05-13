@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TripResource extends JsonResource
+class TicketResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,9 +16,7 @@ class TripResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'order_id' => $this->order_id,
-            'fares' => new FareResource($this->whenLoaded('fares')),
-            'flights' => FlightResource::collection($this->whenLoaded('flights'))
-        ];//parent::toArray($request);
+            'price' => $this->price,
+        ];
     }
 }

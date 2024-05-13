@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\front\OffersController;
+use App\Http\Controllers\front\TicketsController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -19,4 +19,4 @@ Route::apiResource('/orders',OrderController::class);
 
 
 
-Route::apiResource('/offers',OffersController::class);
+Route::apiResource('/tickets',TicketsController::class);

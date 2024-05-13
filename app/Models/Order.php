@@ -29,8 +29,36 @@ class Order extends Model
         return $this->hasMany(Trip::class);
     }
 
+    public function tickets(): HasMany
+    {
+        return $this->hasMany(Ticket::class);
+    }
+
+
     public function contact(): BelongsTo
     {
         return $this->belongsTo(Contact::class);
     }
+
+
+    public function origin(): BelongsTo
+    {
+
+        return $this->belongsTo(City::class,'origin_code','code');
+    }
+
+
+    public function destination(): BelongsTo
+    {
+
+        return $this->belongsTo(City::class,'destination_code','code');
+    }
+
+    public function scopeWithOriginDestination($query)
+    {
+        return $query->with('origin.country', 'destination.country');
+    }
+
+
+
 }

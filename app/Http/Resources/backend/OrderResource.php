@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\backend;
 
-use App\Models\Contact;
+use App\Http\Resources\ContactResource;
+use App\Http\Resources\TripResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -17,8 +18,8 @@ class OrderResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'origin' => $this->origin,
-            'destination' => $this->destination,
+            'origin_code' => $this->origin_code,
+            'destination_code' => $this->destination_code,
             'departure_date' => $this->departure_date,
             'return_date' => $this->return_date,
             'type' => $this->type,
